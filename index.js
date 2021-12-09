@@ -8,12 +8,20 @@ app.get("/:nome?/:lang?", (req, res) => {
   var nome = req.params.nome;
   var lang = req.params.lang;
   var exibirMsg = false;
+  var produtos = [
+    { nome: "Doritos", preco: 5.99 },
+    { nome: "Coca-Cola", preco: 7.99 },
+    { nome: "M&Ms", preco: 6.99 },
+    { nome: "Charge", preco: 2.99 },
+  ];
 
   res.render("index", {
     nome: nome,
     lang: lang,
     empresas: ["IK Solution", " Mirante"],
+    // empresas: "",
     msg: exibirMsg,
+    produtos: produtos,
   });
 });
 
