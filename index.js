@@ -3,6 +3,7 @@ const app = express();
 const port = 4000;
 
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 app.get("/:nome?/:lang?", (req, res) => {
   var nome = req.params.nome;
@@ -13,6 +14,7 @@ app.get("/:nome?/:lang?", (req, res) => {
     { nome: "Coca-Cola", preco: 7.99 },
     { nome: "M&Ms", preco: 6.99 },
     { nome: "Charge", preco: 2.99 },
+    { nome: "Red Bull", preco: 8.99 },
   ];
 
   res.render("index", {
