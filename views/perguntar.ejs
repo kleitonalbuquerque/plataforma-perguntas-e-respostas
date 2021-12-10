@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plataforma Perguntas e Respostas</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- Sempre colocar o css customizado depois do bootstrap -->
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-primary">
+      <a class="navbar-brand" href="/">
+        <img src="/images/guia.png" alt="Guia do Programador" />
+      </a>
+    </nav>
+
     <div class="container">
-      <div class="card">
+      <div class="card" id="formulario-pergunta">
         <div class="card-header">
           <h3>Realizar Pergunta</h3>
         </div>
@@ -38,7 +45,7 @@
             ></textarea>
             <br />
 
-            <button class="btn btn-success">Perguntar</button>
+            <button class="btn btn-primary">Perguntar</button>
           </form>
         </div>
       </div>
