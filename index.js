@@ -9,6 +9,10 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/perguntar", (req, res) => {
+  res.render("perguntar");
+});
+
 app.listen(port, (error) => {
   if (error) {
     console.log("Ops! Algo deu errado!");
