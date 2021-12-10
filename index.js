@@ -1,8 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const connection = require("./database/database");
 
 const app = express();
 const port = 4000;
+
+// Database
+connection
+  .authenticate()
+  .then(() => {
+    console.log("Conexão com banco de dados bem sucedida!");
+  })
+  .catch((msgErro) => {
+    console.log(msgErro);
+  });
 
 // body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
