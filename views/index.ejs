@@ -5,7 +5,22 @@
   <body>
     <%- include('./components/navbar.ejs') %>
     <div class="container">
-      <h1>Estilo do Bootstrap</h1>
+      <hr />
+      <h1>Perguntas</h1>
+      <hr />
+      <a href="/perguntar" class="btn btn-success">Perguntar</a>
+      <hr />
+      <% for(i = 0; i < perguntas.length; i++) { %>
+      <br />
+      <div class="card">
+        <div class="card-body">
+          <h3><%= perguntas[i].titulo %></h3>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary">Responder</button>
+        </div>
+      </div>
+      <% } %>
     </div>
   </body>
   <%- include('./components/footer.ejs') %>
