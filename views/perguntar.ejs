@@ -14,11 +14,13 @@
         <div class="card-body">
           <form method="post" action="/salvarpergunta">
             <label for="">Título</label>
+            <!-- Os names são utilizados para identificação dos campos no backend -->
             <input
               type="text"
               class="form-control"
               placeholder="Título"
               id=""
+              name="titulo"
             />
             <br />
 
@@ -26,7 +28,7 @@
             <textarea
               class="form-control"
               placeholder="Faça sua pergunta aqui"
-              name=""
+              name="descricao"
               id=""
               cols="30"
               rows="10"
