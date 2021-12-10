@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
-const perguntaModel = require("./database/Pergunta");
+const Pergunta = require("./database/Pergunta");
 
 const app = express();
 const port = 4000;
@@ -36,7 +36,13 @@ app.post("/salvarpergunta", (req, res) => {
   var titulo = req.body.titulo;
   var descricao = req.body.descricao;
 
-  res.send(`Formulário recebido! <h1>${titulo}</h1> <p>${descricao}</p> `);
+  Pergunta.create({
+    titulo: titulo,
+    descricao: descricao,
+  }).then(() => {
+    console.log("Pergunta salva no banco de dados com sucesso");
+    res.redirect("/");
+  });
 });
 
 app.listen(port, (error) => {
