@@ -25,12 +25,14 @@ app.use(express.static("public"));
 
 // Rotas
 app.get("/", (req, res) => {
-  Pergunta.findAll({ raw: true }).then((perguntas) => {
-    // console.log(perguntas);
-    res.render("index", {
-      perguntas: perguntas,
-    });
-  });
+  Pergunta.findAll({ raw: true, order: [["id_pergunta", "DESC"]] }).then(
+    (perguntas) => {
+      // console.log(perguntas);
+      res.render("index", {
+        perguntas: perguntas,
+      });
+    }
+  );
 });
 
 app.get("/perguntar", (req, res) => {
