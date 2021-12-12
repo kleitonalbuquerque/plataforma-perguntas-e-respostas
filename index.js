@@ -60,9 +60,15 @@ app.get("/pergunta/:id", (req, res) => {
     where: { id_pergunta: id_pergunta },
   }).then((pergunta) => {
     if (pergunta != undefined) {
-      // Pergunta encontrada
-      res.render("pergunta", {
-        pergunta: pergunta, // varável pergunta guarda o resultado da query para ser utilizada no front
+      Resposta.findAll({
+        where: { perguntaId: pergunta.id_pergunta },
+        order: [["id_resposta", "DESC"]],
+      }).then((respostas) => {
+        // Pergunta encontrada
+        res.render("pergunta", {
+          pergunta: pergunta, // varável pergunta guarda o resultado da query para ser utilizada no front
+          respostas: respostas,
+        });
       });
     } else {
       // Pergunta não encontrada
