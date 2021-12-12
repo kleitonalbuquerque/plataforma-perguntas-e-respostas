@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 const Pergunta = require("./models/Pergunta");
+const Resposta = require("./models/Resposta");
 
 const app = express();
 const port = 4000;
