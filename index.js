@@ -60,7 +60,9 @@ app.get("/pergunta/:id", (req, res) => {
   }).then((pergunta) => {
     if (pergunta != undefined) {
       // Pergunta encontrada
-      res.render("pergunta");
+      res.render("pergunta", {
+        pergunta: pergunta, // varável pergunta guarda o resultado da query para ser utilizada no front
+      });
     } else {
       // Pergunta não encontrada
       res.redirect("/");
