@@ -20,7 +20,16 @@
           rows="10"
           placeholder="Digite sua resposta"
         ></textarea>
+
+        <input
+          type="hidden"
+          name="pergunta"
+          id=""
+          value="<%= pergunta.id_pergunta %>"
+        />
+
         <br />
+
         <button type="submit" class="btn btn-primary">Responder</button>
       </form>
     </div>
