@@ -52,6 +52,22 @@ app.post("/salvarpergunta", (req, res) => {
   });
 });
 
+app.get("/pergunta/:id", (req, res) => {
+  var id_pergunta = req.params.id;
+
+  Pergunta.findOne({
+    where: { id_pergunta: id_pergunta },
+  }).then((pergunta) => {
+    if (pergunta != undefined) {
+      // Pergunta encontrada
+      res.render("pergunta");
+    } else {
+      // Pergunta não encontrada
+      res.redirect("/");
+    }
+  });
+});
+
 app.listen(port, (error) => {
   if (error) {
     console.log("Ops! Algo deu errado!");
